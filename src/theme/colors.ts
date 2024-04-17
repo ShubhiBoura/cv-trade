@@ -1,0 +1,55 @@
+export const colors = {
+  white: '#ffffff',
+  black: '#000000',
+  transparent: 'transparent',
+  yellow: 'yellow',
+  secondaryText: '#FFFFFF50',
+  inputBorder: '#23262F',
+  inputBackground: '#18191D',
+  tabIcon: '#EEEEEE',
+  profileBox: '#EBB30070',
+  options: '#F4E6B206',
+  red: '#FF4F4F',
+  red_fifty: '#FF4F4F50',
+  white_fifteen: '#18191D',
+  radio_in_active: '#525252',
+  secondBorder: '#DDDDDD',
+  buttonBgDisabled: '#FFC91E50',
+  redBg: '#FF545E05',
+  inactiveDot: '#FFC91E20',
+  green: '#4ED46C',
+  green_fifty: '#4ED46C50',
+  thirdText: '#99A6AF80',
+  amber: '#FFBF00',
+  amber_fifty: '#FFBF0050',
+  thirdBg: '#3E4853',
+  text_one: '#ED2F3A',
+  text_one_fifty: '#ED2F3A30',
+  text_two: '#7000FF',
+  text_two_fifty: '#7000FF30',
+  text_three: '#FABA00',
+  text_three_fifty: '#FABA0030',
+  blackFive: '#FFFFFF12',
+  box_color_one: '#FFE5E6',
+  box_color_two: '#E9D7FF',
+  box_color_three: '#FFF6DC',
+  textGray:'#5A5A5A',
+  lightBlack:'#1C1B1B',
+  
+  // .................cv trade---------
+
+  buttonBg: '#B3F0AA',
+  textPurple:"#BD83CB",
+  textYellow:"#EEC879", 
+  lightPurple:'#A383DC',
+  secondBg: '#939393',
+  disabledText: '#99A6AF',
+   themePurple:"#AE8BEB",
+   buyColor:'#38B781',
+   lightGreen:"#B3F0AA",
+   inputContainColor:"#23262F"
+
+  
+
+
+};
