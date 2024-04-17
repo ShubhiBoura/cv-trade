@@ -23,7 +23,6 @@ import {
 } from '../../theme/dimens';
 import TouchableOpacityView from '../../common/TouchableOpacityView';
 import FastImage from 'react-native-fast-image';
-import {doneIcon, uploadIcon} from '../../helper/ImageAssets';
 import ImageCropPicker from 'react-native-image-crop-picker';
 import {commonStyles} from '../../theme/commonStyles';
 import {showError} from '../../helper/logger';
@@ -32,6 +31,7 @@ import {useAppDispatch, useAppSelector} from '../../store/hooks';
 import {SpinnerSecond} from '../../common/SpinnerSecond';
 import {kycVerification} from '../../actions/accountActions';
 import {checkValue} from '../../helper/utility';
+import { APP_THEME_BG, doneIcon, uploadIcon } from '../helper/imageAssets';
 
 const KycStepFive = () => {
   const dispatch = useAppDispatch();
@@ -105,7 +105,7 @@ const KycStepFive = () => {
   };
 
   return (
-    <AppSafeAreaView>
+    <AppSafeAreaView source={APP_THEME_BG}>
       <Toolbar isSecond title={checkValue(languages?.kyc_one)} />
       <KeyBoardAware>
         <AppText type={SIXTEEN} weight={SEMI_BOLD} style={styles.title}>
@@ -138,7 +138,7 @@ const KycStepFive = () => {
         </View>
       </KeyBoardAware>
       <View>
-        <AppText style={commonStyles.centerText} type={FOURTEEN} color={YELLOW}>
+        <AppText style={[commonStyles.centerText,{color:colors.textPurple}]} type={FOURTEEN} >
           {checkValue(languages?.kyc_eighteen)}
         </AppText>
         <AppText style={commonStyles.centerText}>
@@ -148,7 +148,7 @@ const KycStepFive = () => {
         </AppText>
       </View>
       <Button
-        children={checkValue(languages?.kyc_three)}
+        children={'Submit For Verification'}
         onPress={() => onSubmit()}
         containerStyle={styles.button}
       />
@@ -158,6 +158,7 @@ const KycStepFive = () => {
         onPressCamera={() => {
           onPressCamera();
         }}
+
         isFront
       />
       <SpinnerSecond />
@@ -178,8 +179,8 @@ const styles = StyleSheet.create({
     marginTop: universalPaddingTop,
   },
   divider: {
-    height: borderWidth,
-    backgroundColor: colors.inputBorder,
+    height: 0.3,
+    backgroundColor: colors.white,
     marginVertical: 15,
   },
   gender: {
@@ -190,7 +191,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     height: 150,
     borderWidth: borderWidth,
-    borderColor: colors.buttonBg,
+    borderColor: colors.textYellow,
     borderStyle: 'dashed',
     borderRadius: 10,
     marginTop: 20,

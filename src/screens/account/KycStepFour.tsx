@@ -25,7 +25,6 @@ import {documentType} from '../../helper/dummydata';
 import {errorText, placeHolderText, titleText} from '../../helper/Constants';
 import TouchableOpacityView from '../../common/TouchableOpacityView';
 import FastImage from 'react-native-fast-image';
-import {doneIcon, uploadIcon} from '../../helper/ImageAssets';
 import ImageCropPicker from 'react-native-image-crop-picker';
 import {showError} from '../../helper/logger';
 import {
@@ -38,6 +37,7 @@ import {useAppDispatch, useAppSelector} from '../../store/hooks';
 import {setKycData} from '../../slices/accountSlice';
 import NavigationService from '../../navigation/NavigationService';
 import {KYC_STEP_FIVE_SCREEN} from '../../navigation/routes';
+import { APP_THEME_BG, doneIcon, uploadIcon } from '../helper/imageAssets';
 
 const KycStepFour = () => {
   const dispatch = useAppDispatch();
@@ -129,7 +129,7 @@ const KycStepFour = () => {
     NavigationService.navigate(KYC_STEP_FIVE_SCREEN);
   };
   return (
-    <AppSafeAreaView>
+    <AppSafeAreaView source={APP_THEME_BG}>
       <Toolbar isSecond title={checkValue(languages?.kyc_one)} />
       <KeyBoardAware>
         <AppText type={SIXTEEN} weight={SEMI_BOLD} style={styles.title}>
@@ -145,6 +145,7 @@ const KycStepFour = () => {
               label: checkValue(languages?.place_docType),
               value: '',
             }}
+            style={{backgroundColor:'transparent'}}
             label={titleText.docType}
           />
           <Input
@@ -244,8 +245,8 @@ const styles = StyleSheet.create({
     marginTop: universalPaddingTop,
   },
   divider: {
-    height: borderWidth,
-    backgroundColor: colors.inputBorder,
+    height: 0.3,
+    backgroundColor: colors.white,
     marginVertical: 15,
   },
   gender: {
@@ -256,7 +257,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     height: 150,
     borderWidth: borderWidth,
-    borderColor: colors.buttonBg,
+    borderColor: colors.textYellow,
     borderStyle: 'dashed',
     borderRadius: 10,
     marginTop: 20,

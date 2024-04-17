@@ -30,7 +30,7 @@ import {checkValidPanCardNumber, checkValue, getGalleryPermissions} from '../../
 import {setKycData} from '../../slices/accountSlice';
 import NavigationService from '../../navigation/NavigationService';
 import {KYC_STEP_FOUR_SCREEN} from '../../navigation/routes';
-import { doneIcon, uploadIcon } from '../helper/imageAssets';
+import { APP_THEME_BG, doneIcon, uploadIcon } from '../helper/imageAssets';
 
 const KycStepThree = () => {
   const dispatch = useAppDispatch();
@@ -109,7 +109,7 @@ const KycStepThree = () => {
     NavigationService.navigate(KYC_STEP_FOUR_SCREEN);
   };
   return (
-    <AppSafeAreaView>
+    <AppSafeAreaView source={APP_THEME_BG}>
       <Toolbar isSecond title={checkValue(languages?.kyc_one)} />
       <KeyBoardAware>
         <AppText type={SIXTEEN} weight={SEMI_BOLD} style={styles.title}>
