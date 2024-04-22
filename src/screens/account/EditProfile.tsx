@@ -13,13 +13,13 @@ import {borderWidth, universalPaddingHorizontal} from '../../theme/dimens';
 import {BASE_URL} from '../../helper/Constants';
 import TouchableOpacityView from '../../common/TouchableOpacityView';
 import FastImage from 'react-native-fast-image';
-import {camera_ic, profile_placeholder_ic} from '../../helper/ImageAssets';
 import {useAppDispatch, useAppSelector} from '../../store/hooks';
 import ImagePicker from 'react-native-image-crop-picker';
 import {showError} from '../../helper/logger';
 import {editUserProfile} from '../../actions/accountActions';
 import {SpinnerSecond} from '../../common/SpinnerSecond';
 import {checkValue} from '../../helper/utility';
+import { APP_THEME_BG, cameraIcon, camera_ic, profile_bg } from '../helper/imageAssets';
 
 const EditProfile = () => {
   const dispatch = useAppDispatch();
@@ -121,7 +121,7 @@ const EditProfile = () => {
   };
 
   return (
-    <AppSafeAreaView>
+    <AppSafeAreaView source={APP_THEME_BG}>
       <Toolbar isSecond title={checkValue(languages?.edit_one)} />
       <KeyBoardAware>
         <View style={styles.container}>
@@ -171,14 +171,14 @@ const EditProfile = () => {
                     ? {uri: profileImage}
                     : profilepicture
                     ? {uri: `${BASE_URL}${profilepicture}`}
-                    : profile_placeholder_ic
+                    : profile_bg
                 }
                 style={styles.profileImage}
                 resizeMode="contain"
               />
               <View style={styles.cameraIconContainer}>
                 <FastImage
-                  source={camera_ic}
+                  source={cameraIcon}
                   resizeMode="contain"
                   style={styles.cameraIcon}
                 />
@@ -187,7 +187,7 @@ const EditProfile = () => {
           </TouchableOpacityView>
         </View>
         <Button
-          children={checkValue(languages?.otp_five)}
+          children={'Submit'}
           onPress={() => onSubmit()}
           containerStyle={styles.button}
         />
@@ -247,8 +247,8 @@ const styles = StyleSheet.create({
     borderRadius: 150,
   },
   cameraIcon: {
-    height: 29,
-    width: 29,
+    height: 20,
+    width: 20,
   },
   cameraIconContainer: {
     position: 'absolute',
@@ -261,5 +261,6 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     bottom: 0,
     right: 0,
+    backgroundColor:colors.lightGreen
   },
 });

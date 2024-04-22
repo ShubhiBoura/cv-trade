@@ -8,9 +8,8 @@ import {
   ViewStyle,
 } from 'react-native';
 import {SafeAreaView} from 'react-native-safe-area-context';
-import {HOME_BG, mainBg} from '../helper/ImageAssets';
 import {commonStyles} from '../theme/commonStyles';
-import { AUTH_BG } from '../screens/helper/imageAssets';
+import { BackImg } from '../screens/helper/imageAssets';
 
 interface AppSafeAreaViewProps {
   children: ReactNode;
@@ -41,7 +40,7 @@ const AppSafeAreaView = ({children , style, source}: AppSafeAreaViewProps) => {
         barStyle={'light-content'}
       />
       <ImageBackground
-        source={source ? source: AUTH_BG}
+        source={source ? source: BackImg}
         style={commonStyles.screenSize}
         resizeMode='cover'>
         {children}

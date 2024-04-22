@@ -29,6 +29,30 @@ export const uploadIcon = require('../../../assets/images/upload.png')
 export const doneIcon = require('../../../assets/images/done.png');
 export const gallery_ic = require('../../../assets/images/gallery_ic.png');
 export const camera_ic = require('../../../assets/images/camera_ic.png');
+export const profile_bg = require('../../../assets/images/profile_bg.png');
+export const profile_back = require('../../../assets/images/profile_back.png');
+export const right_ic = require('../../../assets/images/right_ic.png');
+export const notification_bell_ic = require('../../../assets/images/notification_bell_ic.png');
+export const settings_ic = require('../../../assets/images/settings_ic.png');
+export const kyc_ic = require('../../../assets/images/kyc_ic.png');
+export const bank_ic = require('../../../assets/images/bank_ic.png');
+export const invite_ic = require('../../../assets/images/invite_ic.png');
+export const contact_ic = require('../../../assets/images/contact_ic.png');
+export const about_us_ic = require('../../../assets/images/about_us_ic.png');
+export const TWO_FA = require('../../../assets/images/2FA.png');
+export const cameraIcon = require('../../../assets/images/cameraIcon.png');
+export const lock_ic = require('../../../assets/images/lock_ic.png');
+export const currency_pref_ic = require('../../../assets/images/currency_pref_ic.png');
+export const languageIcon = require('../../../assets/images/languageIcon.png');
+export const cvImg = require('../../../assets/images/cvImg.png');
+export const BackImg = require('../../../assets/images/BackImg.png');
+
+
+
+
+
+
+
 
 
 

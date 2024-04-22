@@ -13,6 +13,7 @@ import {Switch} from 'react-native-switch';
 import {useAppDispatch, useAppSelector} from '../../store/hooks';
 import {setCommissionAlert, setPriceAlert} from '../../actions/accountActions';
 import {checkValue} from '../../helper/utility';
+import { APP_THEME_BG } from '../helper/imageAssets';
 
 export const SingleBoxNotificationSettings = ({title, state, setState}) => {
   return (
@@ -24,7 +25,7 @@ export const SingleBoxNotificationSettings = ({title, state, setState}) => {
         circleSize={18}
         barHeight={22}
         circleBorderWidth={0}
-        backgroundActive={colors.buttonBg}
+        backgroundActive={colors.textYellow}
         backgroundInactive={colors.radio_in_active}
         circleActiveColor={colors.white}
         circleInActiveColor={colors.white}
@@ -61,7 +62,7 @@ const NotificationSettings = () => {
     dispatch(setCommissionAlert(data));
   };
   return (
-    <AppSafeAreaView>
+    <AppSafeAreaView source={APP_THEME_BG}>
       <Toolbar
         isSecond
         title={checkValue(languages?.notification_setting_one)}

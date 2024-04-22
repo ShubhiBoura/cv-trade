@@ -15,13 +15,9 @@ import {
   WHITE,
   YELLOW,
 } from '../../common';
-import {welcomeBg} from '../../helper/ImageAssets';
 import {Keyboard, View} from 'react-native';
 import {authStyles} from './authStyles';
-import {
-  CAPTCHA_KEY,
-  SITE_URL,
-} from '../../helper/Constants';
+import {CAPTCHA_KEY, SITE_URL} from '../../helper/Constants';
 import KeyBoardAware from '../../common/KeyboardAware';
 import {showError} from '../../helper/logger';
 import {useAppDispatch, useAppSelector} from '../../store/hooks';
@@ -30,8 +26,10 @@ import {login} from '../../actions/authActions';
 import TouchableOpacityView from '../../common/TouchableOpacityView';
 import {checkValue, validateEmail} from '../../helper/utility';
 import Recaptcha from 'react-native-recaptcha-that-works';
-import { Screen } from '../../theme/dimens';
-import { colors } from '../../theme/colors';
+import {Screen} from '../../theme/dimens';
+import {colors} from '../../theme/colors';
+import FastImage from 'react-native-fast-image';
+import {cvImg} from '../helper/imageAssets';
 export const RenderTabBarAuth = (props: any) => {
   const languages = useAppSelector(state => {
     return state.account.languages;
@@ -55,8 +53,9 @@ export const RenderTabBarAuth = (props: any) => {
             <AppText
               type={FOURTEEN}
               weight={SEMI_BOLD}
-              style={{color:i === props?.index ? colors.textYellow : colors.white}}
-              >
+              style={{
+                color: i === props?.index ? colors.textYellow : colors.white,
+              }}>
               {route.title}
             </AppText>
           </TouchableOpacityView>
@@ -87,13 +86,13 @@ const Login = (): JSX.Element => {
     const keyboardDidShowListener = Keyboard.addListener(
       'keyboardDidShow',
       e => {
-        setKeyboardVisible(true); 
+        setKeyboardVisible(true);
       },
     );
     const keyboardDidHideListener = Keyboard.addListener(
       'keyboardDidHide',
       () => {
-        setKeyboardVisible(false); 
+        setKeyboardVisible(false);
       },
     );
     return () => {
@@ -114,10 +113,10 @@ const Login = (): JSX.Element => {
       showError(checkValue(languages?.error_password));
       return;
     }
-    console.log('Helloooo')
+    console.log('Helloooo');
     Keyboard.dismiss();
     // send();
-    onVerify()
+    onVerify();
   };
   const onRegister = () => {
     NavigationService.navigate(REGISTER_SCREEN);
@@ -125,7 +124,6 @@ const Login = (): JSX.Element => {
   const onForgot = async () => {
     NavigationService.navigate(FORGOT_PASSWORD_SCREEN);
   };
-
   const send = () => {
     recaptcha?.current?.open();
   };
@@ -142,16 +140,22 @@ const Login = (): JSX.Element => {
   const onExpire = () => {};
 
   return (
-    <AppSafeAreaView source={welcomeBg}>
+    <AppSafeAreaView>
       <Toolbar isLogo={false} />
+      <FastImage
+        source={cvImg}
+        resizeMode="contain"
+        style={{height: 250, width: Screen.Width,alignSelf:"center"}}
+      />
       <KeyBoardAware>
-        <View style={[authStyles.welcomeSecondContainer2,{
-          marginTop:Screen.Height/2.5
-        }]}>
+        <View style={[authStyles.welcomeSecondContainer2, {marginTop: 40}]}>
           <AppText type={TWENTY}>
             {checkValue(languages?.login_one)}
             {'\n'}
-            <AppText type={TWENTY_SIX} weight={SEMI_BOLD}  style={{color:colors.textPurple}}>
+            <AppText
+              type={TWENTY_SIX}
+              weight={SEMI_BOLD}
+              style={{color: colors.textPurple}}>
               {checkValue(languages?.login_two)}
             </AppText>
           </AppText>
@@ -174,8 +178,8 @@ const Login = (): JSX.Element => {
               onSubmitEditing={() => passwordInputRef?.current?.focus()}
               maxLength={index === 0 ? 10 : 100}
               mainContainer={authStyles.mobileInput}
-              onfocus={()=>setFoucs(true)}
-              onBlur={()=>setFoucs(false)}
+              onfocus={() => setFoucs(true)}
+              onBlur={() => setFoucs(false)}
             />
           </View>
 
@@ -192,8 +196,8 @@ const Login = (): JSX.Element => {
             isSecure
             onSubmitEditing={() => onLogin()}
             onPressVisible={() => setIsPasswordVisible(!isPasswordVisible)}
-            onfocus={()=>setFoucsPass(true)}
-            onBlur={()=>setFoucsPass(false)}
+            onfocus={() => setFoucsPass(true)}
+            onBlur={() => setFoucsPass(false)}
           />
           <AppText onPress={() => onForgot()} style={authStyles.forgotText}>
             {checkValue(languages?.login_seven)}
@@ -209,7 +213,7 @@ const Login = (): JSX.Element => {
             weight={SEMI_BOLD}
             style={authStyles.bottomText}>
             {checkValue(languages?.login_five)}{' '}
-            <AppText weight={SEMI_BOLD}  style={{color:colors.textPurple}}>
+            <AppText weight={SEMI_BOLD} style={{color: colors.textPurple}}>
               {checkValue(languages?.login_six)}
             </AppText>
           </AppText>
@@ -230,7 +234,3 @@ const Login = (): JSX.Element => {
 };
 
 export default Login;
-
-
-
-

@@ -14,6 +14,7 @@ import {
   SEMI_BOLD,
   SIXTEEN,
   TEN,
+  THIRTEEN,
   TWELVE,
   WHITE,
 } from '../../common';
@@ -26,19 +27,7 @@ import {
   universalPaddingHorizontal,
   universalPaddingHorizontalHigh,
 } from '../../theme/dimens';
-import {
-  about_us_ic,
-  bank_ic,
-  contact_ic,
-  invite_ic,
-  kyc_ic,
-  notification_bell_ic,
-  profile_bg,
-  profile_placeholder_ic,
-  rate_ic,
-  right_ic,
-  settings_ic,
-} from '../../helper/ImageAssets';
+
 import FastImage from 'react-native-fast-image';
 import NavigationService from '../../navigation/NavigationService';
 import {
@@ -63,6 +52,21 @@ import {SpinnerSecond} from '../../common/SpinnerSecond';
 import {updateRating} from '../../actions/accountActions';
 import {LogoutModal} from '../../common/LogoutModal';
 import {checkValue} from '../../helper/utility';
+import {
+  APP_THEME_BG,
+  TWO_FA,
+  about_us_ic,
+  bank_ic,
+  contact_ic,
+  doneIcon,
+  invite_ic,
+  kyc_ic,
+  notification_bell_ic,
+  profile_back,
+  profile_bg,
+  right_ic,
+  settings_ic,
+} from '../helper/imageAssets';
 
 const ProfileBox = () => {
   const languages = useAppSelector(state => {
@@ -74,38 +78,45 @@ const ProfileBox = () => {
   return (
     <TouchableOpacityView
       onPress={() => NavigationService.navigate(EDIT_PROFILE_SCREEN)}
-      style={styles.profileBoxContainer}>
+      style={styles.profileBoxContainer}
+      >
       <View style={styles.profileBoxContainerSecond}>
         <ImageBackground
-          source={profile_bg}
+          source={profile_back}
           resizeMode="contain"
           style={styles.profileBg}>
           <FastImage
             source={
               profilepicture
                 ? {uri: `${BASE_URL}${profilepicture}`}
-                : profile_placeholder_ic
+                : profile_bg
             }
             resizeMode="contain"
             style={styles.profileImage}
           />
         </ImageBackground>
-        <View>
-          <AppText
-            color={firstName ? WHITE : SECOND}
-            type={firstName ? TWELVE : TEN}>
-            {firstName
-              ? `${firstName} ${lastName}`
-              : checkValue(languages?.profile_one)}
+      
+        <View style={{width: '62%'}}>
+          <View style={{flexDirection: 'row'}}>
+            <AppText color={WHITE} type={THIRTEEN}>
+              {firstName ? `${firstName} ${lastName}` : 'John Wick'}
+            </AppText>
+            <FastImage
+              source={doneIcon}
+              resizeMode="contain"
+              style={styles.rightIc}
+            />
+          </View>
+          <AppText color={WHITE} style={{marginTop: 5}} type={THIRTEEN}>
+            {mobileNumber || ''}
           </AppText>
-          <AppText>{`${mobileNumber ?? ''}`}</AppText>
         </View>
+        <FastImage
+          source={right_ic}
+          resizeMode="contain"
+          style={styles.rightIc}
+        />
       </View>
-      <FastImage
-        source={right_ic}
-        resizeMode="contain"
-        style={styles.rightIc}
-      />
     </TouchableOpacityView>
   );
 };
@@ -230,7 +241,7 @@ const Account = () => {
     },
 
     {
-      icon: settings_ic,
+      icon: TWO_FA,
       title: checkValue(languages?.account_three),
       id: '10',
     },
@@ -306,8 +317,8 @@ const Account = () => {
     setIsLogout(true);
   };
   return (
-    <AppSafeAreaView>
-      <Header />
+    <AppSafeAreaView source={APP_THEME_BG}>
+      <Header isLogo isBellLight isBell={false} isSearch={false} />
       <ProfileBox />
       <KeyBoardAware style={styles.container}>
         <RenderBox
@@ -352,7 +363,7 @@ const Account = () => {
 export default Account;
 const styles = StyleSheet.create({
   profileBoxContainer: {
-    backgroundColor: colors.profileBox,
+    backgroundColor: colors.inputBackground,
     padding: universalPaddingHorizontal,
     marginHorizontal: universalPaddingHorizontalHigh,
     borderRadius: 10,
@@ -376,6 +387,7 @@ const styles = StyleSheet.create({
   rightIc: {
     height: 15,
     width: 15,
+    marginHorizontal: 5,
   },
   profileImage: {
     height: 55,
@@ -383,8 +395,9 @@ const styles = StyleSheet.create({
     borderRadius: 100,
   },
   icon: {
-    height: 22,
-    width: 22,
+    height: 20,
+    width: 20,
+    resizeMode: 'contain',
     marginEnd: 10,
   },
   singleContainerTitle: {
@@ -392,7 +405,7 @@ const styles = StyleSheet.create({
     marginTop: universalPaddingHorizontalHigh,
   },
   singleContainerFill: {
-    backgroundColor: colors.options,
+    backgroundColor: colors.inputBackground,
     paddingHorizontal: universalPaddingHorizontalHigh,
     marginVertical: 5,
     paddingVertical: universalPaddingHorizontal,

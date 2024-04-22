@@ -16,6 +16,7 @@ import {useAppDispatch, useAppSelector} from '../../store/hooks';
 import {enableTwoFa} from '../../actions/accountActions';
 import {SpinnerSecond} from '../../common/SpinnerSecond';
 import {verifyOtp} from '../../actions/authActions';
+import { APP_THEME_BG } from '../helper/imageAssets';
 
 const EnterOtp = () => {
   const dispatch = useAppDispatch();
@@ -50,7 +51,7 @@ const EnterOtp = () => {
     }
   };
   return (
-    <AppSafeAreaView>
+    <AppSafeAreaView source={APP_THEME_BG}>
       <Toolbar isSecond title={title} />
       <KeyBoardAware>
         <View style={styles.container}>
@@ -63,6 +64,7 @@ const EnterOtp = () => {
             returnKeyType="done"
             keyboardType="numeric"
             onSubmitEditing={() => onSubmit()}
+            containerStyle={{backgroundColor:colors.inputContainColor}}
           />
         </View>
       </KeyBoardAware>

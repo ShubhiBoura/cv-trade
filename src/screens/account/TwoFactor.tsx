@@ -23,6 +23,7 @@ import {ENTER_OTP_SCREEN} from '../../navigation/routes';
 import {commonStyles} from '../../theme/commonStyles';
 import {Switch} from 'react-native-switch';
 import {colors} from '../../theme/colors';
+import { APP_THEME_BG } from '../helper/imageAssets';
 
 const SingleBoxNotificationSettings = ({title, state, setState, value}) => {
   return (
@@ -35,7 +36,7 @@ const SingleBoxNotificationSettings = ({title, state, setState, value}) => {
         circleSize={18}
         barHeight={22}
         circleBorderWidth={0}
-        backgroundActive={colors.buttonBg}
+        backgroundActive={colors.textYellow}
         backgroundInactive={colors.inputBorder}
         circleActiveColor={colors.white}
         circleInActiveColor={colors.white}
@@ -83,7 +84,7 @@ const TwoFactor = () => {
     }
   };
   return (
-    <AppSafeAreaView>
+    <AppSafeAreaView source={APP_THEME_BG}>
       <Toolbar isSecond title={'Two Factor Authentication'} />
       <KeyBoardAware style={styles.container}>
         <SingleBoxNotificationSettings

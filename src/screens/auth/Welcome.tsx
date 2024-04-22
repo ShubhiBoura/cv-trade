@@ -18,7 +18,8 @@ import {LOGIN_SCREEN} from '../../navigation/routes';
 import KeyBoardAware from '../../common/KeyboardAware';
 import {useAppSelector} from '../../store/hooks';
 import {checkValue} from '../../helper/utility';
-import { AUTH_BG } from '../helper/imageAssets';
+import { AUTH_BG, cvImg } from '../helper/imageAssets';
+import { Screen } from '../../theme/dimens';
 
 const Welcome = (): JSX.Element => {
   const languages = useAppSelector(state => {
@@ -29,7 +30,8 @@ const Welcome = (): JSX.Element => {
   };
 
   return (
-    <AppSafeAreaView >
+    <AppSafeAreaView source={AUTH_BG}>
+       
       <KeyBoardAware>
         <View style={authStyles.welcomeSecondContainer}>
           <AppText type={THIRTY_FOUR} weight={BOLD}>

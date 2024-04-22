@@ -18,12 +18,7 @@ import {
 import KeyBoardAware from '../../common/KeyboardAware';
 import TouchableOpacityView from '../../common/TouchableOpacityView';
 import FastImage from 'react-native-fast-image';
-import {
-  currency_pref_ic,
-  languageIcon,
-  lock_ic,
-  right_ic,
-} from '../../helper/ImageAssets';
+
 import NavigationService from '../../navigation/NavigationService';
 import {
   CHANGE_PASSWORD_SCREEN,
@@ -33,6 +28,7 @@ import {
 import {useAppDispatch, useAppSelector} from '../../store/hooks';
 import {deleteAccount} from '../../actions/accountActions';
 import {checkValue} from '../../helper/utility';
+import { APP_THEME_BG, currency_pref_ic, languageIcon, lock_ic, right_ic } from '../helper/imageAssets';
 
 export const SingleBox = ({item}) => {
   return (
@@ -85,7 +81,7 @@ const Settings = () => {
     setIsDelete(true);
   };
   return (
-    <AppSafeAreaView>
+    <AppSafeAreaView source={APP_THEME_BG}>
       <Toolbar isSecond title={checkValue(languages?.setting_three)} />
       <KeyBoardAware style={styles.container}>
         {DATA?.map(e => {
