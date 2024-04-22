@@ -21,10 +21,10 @@ import {PickerSelect} from '../../common/PickerSelect';
 import {errorText, placeHolderText} from '../../helper/Constants';
 import {dateRange} from '../../helper/dummydata';
 import FastImage from 'react-native-fast-image';
-import {arrowRightIcon} from '../../helper/ImageAssets';
 import {showError} from '../../helper/logger';
 import {useAppDispatch} from '../../store/hooks';
 import {downLoadTradeReport} from '../../actions/accountActions';
+import { APP_THEME_BG, arrowRightIcon } from '../helper/imageAssets';
 
 const DownloadReport = () => {
   const dispatch = useAppDispatch();
@@ -69,7 +69,7 @@ const DownloadReport = () => {
     dispatch(downLoadTradeReport(data));
   };
   return (
-    <AppSafeAreaView>
+    <AppSafeAreaView source={APP_THEME_BG}>
       <Toolbar isSecond title={'Download Trade Report'} />
       <KeyBoardAware>
         <AppText type={SIXTEEN} weight={SEMI_BOLD} style={styles.title}>
@@ -86,7 +86,7 @@ const DownloadReport = () => {
           <AppText style={styles.title2} type={FOURTEEN}>
             The report will include:
           </AppText>
-          {Data.map(e => {
+          {Data?.map(e => {
             return (
               <View style={styles.singleContainer} key={e.key}>
                 <FastImage
@@ -122,8 +122,8 @@ const styles = StyleSheet.create({
     marginTop: universalPaddingTop,
   },
   divider: {
-    height: borderWidth,
-    backgroundColor: colors.inputBorder,
+    height: 0.3,
+    backgroundColor: colors.white,
     marginVertical: 15,
   },
   title2: {

@@ -6,6 +6,7 @@ import {universalPaddingTop} from '../../theme/dimens';
 import {SingleBoxNotificationSettings} from './NotificationSettings';
 import {useAppDispatch, useAppSelector} from '../../store/hooks';
 import {setTradeSetting} from '../../actions/accountActions';
+import { APP_THEME_BG } from '../helper/imageAssets';
 
 const TradeSettings = () => {
   const dispatch = useAppDispatch();
@@ -19,7 +20,7 @@ const TradeSettings = () => {
     dispatch(setTradeSetting(data));
   };
   return (
-    <AppSafeAreaView>
+    <AppSafeAreaView source={APP_THEME_BG}>
       <Toolbar isSecond title={'Trade Settings'} />
       <KeyBoardAware style={styles.container}>
         <SingleBoxNotificationSettings

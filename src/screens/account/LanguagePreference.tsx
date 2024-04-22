@@ -24,6 +24,7 @@ import {SELECTED_LANGUAGE} from '../../helper/Constants';
 import {translate} from 'google-translate-api-x';
 import {setLanguages, setSelectedLanguage} from '../../slices/accountSlice';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import { APP_THEME_BG } from '../helper/imageAssets';
 
 const LanguagePreference = () => {
   const dispatch = useAppDispatch();
@@ -76,7 +77,7 @@ const LanguagePreference = () => {
     setIsLoading(false);
   };
   return (
-    <AppSafeAreaView>
+    <AppSafeAreaView source={APP_THEME_BG}>
       <Toolbar isSecond title={'Currency Language'} />
       <KeyBoardAware style={styles.container}>
         {data?.map(e => {

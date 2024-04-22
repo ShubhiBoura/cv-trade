@@ -14,7 +14,7 @@ import {
 } from '../../common';
 import KeyBoardAware from '../../common/KeyboardAware';
 import FastImage from 'react-native-fast-image';
-import {copyIcon, giftIc, inviteIcon} from '../../helper/ImageAssets';
+
 import {StyleSheet, View} from 'react-native';
 import {colors} from '../../theme/colors';
 import {borderWidth, universalPaddingHorizontal} from '../../theme/dimens';
@@ -22,20 +22,21 @@ import {commonStyles} from '../../theme/commonStyles';
 import TouchableOpacityView from '../../common/TouchableOpacityView';
 import {useAppSelector} from '../../store/hooks';
 import {copyText, shareToAny} from '../../helper/utility';
+import { APP_THEME_BG, copyIcon, giftIc, inviteIcon } from '../helper/imageAssets';
 
 const InviteAndEarn = () => {
   const languages = useAppSelector(state => {
     return state.account.languages;
   });
   const referCode = useAppSelector(state => state.home.referCode);
+  
   const referCount = useAppSelector(state => state.home.referCount);
-  // const message = `Join TAXBITS with my referral code and get free bonus.${'\n'}Code - ${referCode}${'\n'}${'\n'}Download now${'\n'}${'\n'}Android${'\n'}${'https://play.google.com/store/apps/'}${'\n'}${'\n'}IOS${'\n'}https://play.google.com/store/apps`;
   const message = `https://taxbits.io/invite?code=${referCode}`;
   const onSubmit = () => {
     shareToAny(message);
   };
   return (
-    <AppSafeAreaView>
+    <AppSafeAreaView source={APP_THEME_BG}>
       <Toolbar isSecond title={'Invite & Earn'} />
       <KeyBoardAware>
         <FastImage
@@ -47,7 +48,7 @@ const InviteAndEarn = () => {
           Refer Friends.{'\n'}Earn Crypto Together{' '}
         </AppText>
         <AppText>
-          Earn up to 40% commission on every trade across TAXBITS.
+          Earn up to 40% commission on every trade across Cv Trade.
         </AppText>
         <View style={styles.container}>
           <View style={styles.balanceContainer}>
@@ -152,7 +153,7 @@ const styles = StyleSheet.create({
   commissionBox: {
     flexDirection: 'row',
     justifyContent: 'space-between',
-    backgroundColor: colors.buttonBgDisabled,
+    backgroundColor: colors.lightPurple,
     padding: universalPaddingHorizontal,
     borderRadius: 10,
     marginTop: 10,

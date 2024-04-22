@@ -1,12 +1,7 @@
 import React from 'react';
 import {AppSafeAreaView, Toolbar} from '../../common';
 import {StyleSheet} from 'react-native';
-import {
-  download_report_ic,
-  fee_setting_ic,
-  payment_options_ic,
-  trade_setting_ic,
-} from '../../helper/ImageAssets';
+
 import KeyBoardAware from '../../common/KeyboardAware';
 import {SingleBox} from './Settings';
 import {universalPaddingTop} from '../../theme/dimens';
@@ -19,6 +14,7 @@ import {
 } from '../../navigation/routes';
 import {useAppSelector} from '../../store/hooks';
 import {checkValue} from '../../helper/utility';
+import { APP_THEME_BG, download_report_ic, fee_setting_ic, trade_setting_ic } from '../helper/imageAssets';
 
 const BankingSettings = () => {
   const languages = useAppSelector(state => {
@@ -51,7 +47,7 @@ const BankingSettings = () => {
     },
   ];
   return (
-    <AppSafeAreaView>
+    <AppSafeAreaView source={APP_THEME_BG}>
       <Toolbar isSecond title={checkValue(languages?.bank_four)} />
       <KeyBoardAware style={styles.container}>
         {DATA?.map(e => {

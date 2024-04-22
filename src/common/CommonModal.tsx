@@ -48,7 +48,7 @@ const CommonModal = ({
             titleStyle={styles.buttonTitle}
           />
         </View>
-        <AppText color={RED} style={styles.title}>
+        <AppText  style={[styles.title,{color:'#FF545E'}]}>
           {subtitle}
         </AppText>
       </View>
@@ -83,14 +83,14 @@ const styles = StyleSheet.create({
   },
   noButton: {
     flex: 1,
-    backgroundColor: colors.secondaryText,
+    backgroundColor: 'transparent',
     borderColor: colors.secondBorder,
     borderWidth: borderWidth,
     marginEnd: 10,
   },
   yesButton: {
     flex: 1,
-    backgroundColor: colors.red,
+    backgroundColor: '#FF545E',
     marginStart: 10,
   },
   buttonContainer: {

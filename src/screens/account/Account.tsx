@@ -178,7 +178,7 @@ const RatingModal = ({isVisible, setIsVisible}) => {
       <View style={styles.ratingContainer}>
         <View style={styles.ratingHeader}>
           <AppText color={BLACK} weight={BOLD} type={SIXTEEN}>
-            Rate TAXBITS
+            Rate Cv Trade
           </AppText>
         </View>
         <View style={styles.ratingBody}>

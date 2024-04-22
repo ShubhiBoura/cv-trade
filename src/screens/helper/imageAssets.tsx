@@ -46,6 +46,15 @@ export const currency_pref_ic = require('../../../assets/images/currency_pref_ic
 export const languageIcon = require('../../../assets/images/languageIcon.png');
 export const cvImg = require('../../../assets/images/cvImg.png');
 export const BackImg = require('../../../assets/images/BackImg.png');
+export const trade_setting_ic = require('../../../assets/images/trade_setting_ic.png');
+export const fee_setting_ic = require('../../../assets/images/fee_setting_ic.png');
+export const download_report_ic = require('../../../assets/images/download_report_ic.png');
+export const arrowRightIcon = require('../../../assets/images/arrowRightIcon.png');
+export const calendarImg = require('../../../assets/images/calendarImg.png');
+export const inviteIcon = require('../../../assets/images/inviteIcon.png');
+export const copyIcon = require('../../../assets/images/copyIcon.png');
+export const giftIc = require('../../../assets/images/giftIc.png');
+export const contact_us = require('../../../assets/images/contact_us.png');
 
 
 

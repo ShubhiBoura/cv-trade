@@ -20,6 +20,7 @@ import {
 } from '../../theme/dimens';
 import {Switch} from 'react-native-switch';
 import {setFeeSetting} from '../../actions/accountActions';
+import {APP_THEME_BG} from '../helper/imageAssets';
 
 const FeeSettings = () => {
   const dispatch = useAppDispatch();
@@ -33,11 +34,11 @@ const FeeSettings = () => {
     dispatch(setFeeSetting(data));
   };
   return (
-    <AppSafeAreaView>
+    <AppSafeAreaView source={APP_THEME_BG}>
       <Toolbar isSecond title={'FEE Settings'} />
       <KeyBoardAware>
         <AppText type={SIXTEEN} weight={SEMI_BOLD} style={styles.title}>
-          Pay trading fees with TAXBITS
+          Pay trading fees with Cv Trade
         </AppText>
         <View style={styles.divider} />
         <View style={styles.container}>
@@ -49,7 +50,7 @@ const FeeSettings = () => {
               circleSize={18}
               barHeight={22}
               circleBorderWidth={0}
-              backgroundActive={colors.buttonBg}
+              backgroundActive={colors.textYellow}
               backgroundInactive={colors.radio_in_active}
               circleActiveColor={colors.white}
               circleInActiveColor={colors.white}
@@ -63,12 +64,12 @@ const FeeSettings = () => {
           </View>
           <View style={styles.infoContainer}>
             <View style={styles.indicator} />
-            <AppText type={TEN}>TAXBITS buy from the exchange</AppText>
+            <AppText type={TEN}>CV Trade buy from the exchange</AppText>
           </View>
           <View style={styles.infoContainer}>
             <View style={styles.indicator} />
             <AppText type={TEN}>
-              Unlocked TAXBITS balance reserved for trading fees
+              Unlocked CV Trade balance reserved for trading fees
             </AppText>
           </View>
           <AppText style={styles.note}>
@@ -78,12 +79,12 @@ const FeeSettings = () => {
         </View>
         <View style={[styles.container, styles.note]}>
           <AppText>
-            Based on your TAXBITS holdings at the time of the trade, your
+            Based on your CV Trade holdings at the time of the trade, your
             trading fee rate will be determined as follows :
           </AppText>
           <View style={styles.fillContainer}>
             <View style={styles.fillHeading}>
-              <AppText type={FOURTEEN}>TAXBITS holdings</AppText>
+              <AppText type={FOURTEEN}>CV Trade holdings</AppText>
             </View>
             <View style={styles.fillHeading}>
               <AppText type={FOURTEEN}>Trading Fee Payable</AppText>
@@ -113,13 +114,17 @@ const FeeSettings = () => {
               </AppText>
             </View>
           </View>
-          <View style={styles.rowViewSettings}>
-            <View style={styles.flexview}>
+          <View
+            style={[
+              styles.rowViewSettings,
+              {borderBottomLeftRadius: 5, borderBottomRightRadius: 10},
+            ]}>
+            <View style={[styles.flexview, {borderBottomLeftRadius: 5}]}>
               <AppText type={FOURTEEN} style={styles.title1}>
                 DEPOSIT INR
               </AppText>
             </View>
-            <View style={styles.flexview}>
+            <View style={[styles.flexview, {borderBottomRightRadius: 5}]}>
               <AppText type={FOURTEEN} style={styles.title1}>
                 0.19%
               </AppText>
@@ -144,8 +149,8 @@ const styles = StyleSheet.create({
     marginTop: universalPaddingTop,
   },
   divider: {
-    height: borderWidth,
-    backgroundColor: colors.inputBorder,
+    height: 0.3,
+    backgroundColor: colors.white,
     marginVertical: 15,
   },
   headingContainer: {
@@ -156,7 +161,7 @@ const styles = StyleSheet.create({
   indicator: {
     height: 3,
     width: 15,
-    backgroundColor: colors.buttonBg,
+    backgroundColor: colors.textYellow,
     borderRadius: 2,
     marginEnd: 5,
   },
@@ -186,6 +191,9 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     backgroundColor: colors.thirdBg,
     padding: universalPaddingVertical,
+    marginTop: 15,
+    borderTopLeftRadius: 5,
+    borderTopRightRadius: 5,
   },
   fillHeading: {
     flex: 1,

@@ -142,7 +142,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   button: {
-    backgroundColor: colors.red,
+    backgroundColor:'#FF545E',
     margin: universalPaddingHorizontalHigh,
   },
   buttonTitle: {

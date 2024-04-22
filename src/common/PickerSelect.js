@@ -11,6 +11,7 @@ import {
 import {downArrowIcon} from '../helper/ImageAssets';
 import {colors} from '../theme/colors';
 import {AppText} from './AppText';
+import { calendarImg } from '../screens/helper/imageAssets';
 
 const PickerSelect = ({
   data,
@@ -65,8 +66,9 @@ const PickerSelect = ({
                 style={styles.downArrowStyle}
                 tintColor={colors.white}
               />
-            ) : (
-              <></>
+            ) :( 
+
+            <></>
             )
           }
           textInputProps={{

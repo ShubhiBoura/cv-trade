@@ -8,7 +8,6 @@ import {
 } from '../../common';
 import KeyBoardAware from '../../common/KeyboardAware';
 import FastImage from 'react-native-fast-image';
-import {contact_us} from '../../helper/ImageAssets';
 import {StyleSheet, View} from 'react-native';
 import {
   borderWidth,
@@ -16,6 +15,7 @@ import {
   universalPaddingTop,
 } from '../../theme/dimens';
 import {colors} from '../../theme/colors';
+import { contact_us } from '../helper/imageAssets';
 
 const ContactUs = () => {
   return (
@@ -34,7 +34,7 @@ const ContactUs = () => {
         </AppText>
         <View style={styles.mailContainer}>
           <AppText type={SIXTEEN} weight={SEMI_BOLD}>
-            taxbitsexchange.in@gmail.com
+            cvtrade_exchange.in@gmail.com
           </AppText>
         </View>
       </KeyBoardAware>
@@ -52,9 +52,9 @@ const styles = StyleSheet.create({
   },
   mailContainer: {
     marginTop: universalPaddingTop,
-    backgroundColor: colors.buttonBgDisabled,
+    backgroundColor: colors.black,
     borderWidth: borderWidth,
-    borderColor: colors.buttonBg,
+    borderColor: colors.inputContainColor,
     padding: universalPaddingHorizontal,
     borderRadius: 10,
     alignItems: 'center',

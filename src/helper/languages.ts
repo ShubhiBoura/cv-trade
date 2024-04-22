@@ -13,7 +13,7 @@ export const languages = {
   welcome_three: 'Instantly invest in cryptocurrencies,',
   welcome_four: 'exchange it and pay online with us',
   welcome_five: 'Get Started',
-  welcome_six: 'Copyright 2024',
+  welcome_six: 'Copyright 2023',
   welcome_seven: 'cvtrade.',
   welcome_eight: 'All rights reserved',
   //forgot
